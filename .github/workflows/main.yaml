@@ -10,5 +10,8 @@ jobs:
       - name: print a welcome message
         run: echo "welcome to our first githun actions workflow!"
 
-      - name: list repository files
+      - name: checkout repository
+        uses: actions/checkout@v4.2.2
+        
+      - name: list repository fles
         run: ls -la
