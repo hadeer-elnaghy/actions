@@ -1,0 +1,32 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  example:
+    runs-on: ubuntu-latest
+    steps:
+      # Image 1: Debug & Error Workflow Commands
+      - name: Check if a file exists
+        run: |
+          if [ -f "config.yaml" ]; then
+            echo "::debug::config.yaml exists"
+          else
+            echo "::error::config.yaml is missing"
+          fi
+
+      # Image 2 & 3: Environment Variables & Masking Secret Values
+      - name: Set API key
+        run: echo "API_KEY=12345" >> $GITHUB_ENV
+
+      - name: Use API key with mask
+        run: |
+          echo "::add-mask::$API_KEY"
+          echo "Using API key $API_KEY"
+
+      # Image 4: Warning Workflow Commands
+      - name: Check for deprecated features
+        run: |
+          deprecated=true
+          if [[ deprecated ]]; then
+            echo "::warning::Deprecated function found"
+          fi
