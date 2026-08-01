@@ -1,7 +1,7 @@
 on:
     workflow_dispatch:
 jobs:
-    expression:
+    expressions:
         steps:
         - name: print a message
           run: echo "the job is running"
