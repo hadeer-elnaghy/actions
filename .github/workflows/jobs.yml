@@ -5,7 +5,15 @@ jobs:
   job_1:
     runs-on: ubuntu-latest
     steps:
-      - run: "echo Job ${{ github.job }}"
+      - run: |
+          npm install
+          npm run build
+        working-directory: ./temp #equivalent to cd ./temp
+        shell: bash
+        # pwsh, cmd, powershell, python
+
+      - run: print %ENV
+        shell: perl {0}
 
   job_2:
     runs-on: ubuntu-latest
