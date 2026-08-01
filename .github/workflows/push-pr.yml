@@ -1,0 +1,32 @@
+name: Test Workflow
+
+on:
+  # Trigger on push events to specific branches and paths
+  push:
+    branches:
+      - main
+      - "release/**"
+    paths:
+      - "src/**"
+
+  # Trigger on pull request events to specific branches
+  pull_request:
+    branches:
+      - main
+      - "release/**"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Run tests
+        run: npm test
