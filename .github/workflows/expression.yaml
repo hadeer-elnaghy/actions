@@ -1,0 +1,8 @@
+on:
+    workflow_dispatch:
+jobs:
+    expression:
+        steps:
+        - name: print a message
+          run: echo "the job is running"
+          if: ${{ github.event_name == 'push' }}
