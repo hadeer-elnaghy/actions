@@ -1,8 +1,11 @@
 on:
-    workflow_dispatch:
+  workflow_dispatch:
+
 jobs:
-    expressions:
-        steps:
-        - name: print a message
-          run: echo "the job is running"
-          if: ${{ github.event_name == 'push' }}
+  expressions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print a message
+        run: echo "the job is running"
+        # Note: If triggered manually, event_name is 'workflow_dispatch', not 'push'
+        if: ${{ github.event_name == 'workflow_dispatch' }}
