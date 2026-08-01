@@ -1,17 +1,17 @@
-on:
-  push:
-    branches:
-      - main
+# on:
+#   push:
+#     branches:
+#       - main
 
-jobs:
-  example-job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: print a welcome message
-        run: echo "welcome to our first githun actions workflow!"
+# jobs:
+#   example-job:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: print a welcome message
+#         run: echo "welcome to our first githun actions workflow!"
 
-      - name: checkout repository
-        uses: actions/checkout@v4.2.2
+#       - name: checkout repository
+#         uses: actions/checkout@v4.2.2
         
-      - name: list repository fles
-        run: ls -la
+#       - name: list repository fles
+#         run: ls -la
